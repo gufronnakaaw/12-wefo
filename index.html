@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeFo - Your Daily Weather Info</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="icon/weather-icons.css">
+    <link rel="stylesheet" href="css/weather-icons-wind.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="loader"></div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12 col-input-city">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control input-city" placeholder="Search for a city...">
+                    
+                    <div class="input-group-append">
+                        <button class="btn btn-search" type="button">
+                            <svg class="search-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="invalid-feedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- current weather info -->
+        <div class="daily-container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="current-weather-container">
+                        <div class="current-city mb-2 pt-4"></div>
+                        <div class="current-temp mb-2"></div>
+                        <div class="current-feels-like mb-5 "></div>
+                        <div class="current-weather-icon mb-3"></div>
+                        <div class="current-description"></div>
+                        <div class="current-time pb-4"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="col-12 text-center mb-3">
+                        <h5 class="text-white text-daily">Daily Weather</h5>
+                    </div>
+    
+                   <div class="daily-weather-container"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- daily weather info -->
+        <div class="row text-center mt-4 detail-section"></div>
+    </div>
+
+    
+    <!-- footer -->
+    <footer>
+        <div>
+            <p class="text-center text-white">Creator: Gufronnaka Arif Wildan</p>
+        </div>
+    </footer>
+    
+    <script src="js/app.js"></script>
+</body>
+</html>
