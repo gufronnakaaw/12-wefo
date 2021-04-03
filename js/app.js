@@ -162,8 +162,7 @@ function renderDailyWeather(dataDailyWeather, weatherIcons){
 
 // render current weather
 function renderCurrentWeather(dataCurrentWeather, weatherIcons){
-    const time = getCurrentTime(dataCurrentWeather.timezone)
-    const date = getCurrentDate(dataCurrentWeather.dt * 1000)
+    const { date, time } = getCurrentTime(dataCurrentWeather.timezone)
 
     currentCity.innerHTML = `${dataCurrentWeather.name}<sup>${dataCurrentWeather.sys.country}</sup>`
     currentTemp.innerHTML = `${Math.round(dataCurrentWeather.main.temp)}&#176;C`
@@ -328,7 +327,42 @@ function getCurrentTime(timezone){
     const country = timezone / 60
     d.setMinutes(d.getMinutes() + country)
 
-    return (d.getHours() <= 12) ? `${d.getHours()}:${d.getMinutes()} am` : `${d.getHours()}:${d.getMinutes()} pm`
+    let time = ''
+
+    if( d.getHours() <= 12 ){
+        
+        if( d.getHours() < 10 ){
+            
+            if( d.getMinutes() < 10 ){
+                time += `0${d.getHours()}:0${d.getMinutes()} am`
+            } else {
+                time += `0${d.getHours()}:${d.getMinutes()} am`
+            }
+
+        } else {
+
+            if( d.getMinutes() < 10 ){
+                time += `${d.getHours()}:0${d.getMinutes()} am`
+            } else {
+                time += `${d.getHours()}:${d.getMinutes()} am`
+            }
+        }
+
+    } else {
+
+        if( d.getMinutes() < 10 ){
+            time += `${d.getHours()}:0${d.getMinutes()} pm`
+        } else {
+            time += `${d.getHours()}:${d.getMinutes()} pm`
+        }
+
+    }
+
+    const data = {
+        date: `${daysName[d.getDay()]}, ${d.getDate()} ${monthsName[d.getMonth()]}`,
+        time
+    }
+    return data
 }
 
 
